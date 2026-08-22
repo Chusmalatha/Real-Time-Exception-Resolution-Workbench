@@ -4,11 +4,13 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'https://real-time-exception-resolution-workbench-eljo.onrender.com/api',
 });
 
+
+
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     let message = 'An unexpected error occurred.';
-    
+
     if (!error.response) {
       // Network error or backend down
       message = 'Unable to connect to the backend.';
